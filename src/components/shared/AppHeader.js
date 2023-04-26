@@ -65,7 +65,7 @@ const AppHeader = () => {
 					</div>
 
 					{/* Theme switcher small screen */}
-					<div
+					{/* <div
 						onClick={() => setTheme(activeTheme)}
 						aria-label="Theme Switcher"
 						className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
@@ -75,7 +75,7 @@ const AppHeader = () => {
 						) : (
 							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
 						)}
-					</div>
+					</div> */}
 
 					{/* Small screen hamburger menu */}
 					<div className="sm:hidden">
@@ -170,7 +170,7 @@ const AppHeader = () => {
 					</div>
 
 					{/* Theme switcher large screen */}
-					<div
+					{/* <div
 						onClick={() => setTheme(activeTheme)}
 						aria-label="Theme Switcher"
 						className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
@@ -180,7 +180,7 @@ const AppHeader = () => {
 						) : (
 							<FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
 						)}
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<div>

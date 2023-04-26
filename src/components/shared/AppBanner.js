@@ -1,4 +1,5 @@
 import UseThemeSwitcher from "@/hooks/UseThemeSwitcher";
+import Text from "@/hooks/UseTypeWriter";
 import { motion } from "framer-motion";
 import { FiArrowDownCircle } from "react-icons/fi";
 
@@ -21,9 +22,9 @@ const AppBanner = () => {
             duration: 0.9,
             delay: 0.1,
           }}
-          className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light uppercase"
+          className="font-general-semibold text-2xl lg:text-3xl xl:text-4xl text-center sm:text-left text-ternary-dark dark:text-primary-light"
         >
-          Hi, I am Anubhav Singla
+          Hi, I am <Text />
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

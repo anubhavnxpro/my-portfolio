@@ -1,6 +1,8 @@
 import AboutMeBio from "@/components/about/AboutMeBio";
+import AboutMeSkills from "@/components/about/AboutMeSkills";
 import PagesMetaHead from "@/components/shared/PagesMetaHead"
 import { motion } from "framer-motion"
+AboutMeSkills
 
 const About = () => {
     return (
@@ -12,7 +14,16 @@ const About = () => {
                 exit={{ opacity: 0 }}
                 className="container mx-auto"
             >
-            <AboutMeBio />
+                <AboutMeBio />
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, delay: 1 }}
+                exit={{ opacity: 0 }}
+                className="container mx-auto"
+            >
+                <AboutMeSkills />
             </motion.div>
         </div>
     )

@@ -1,42 +1,92 @@
+import { useState } from "react";
 import Button from "../reusable/Button";
 import FormInput from "../reusable/FormInput";
+import { sendContactForm } from "@/lib/api";
+
+const initState = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+}
 
 const ContactForm = () => {
+    const [form, setForm] = useState(initState);
+    // const [isLoading, setIsLoading] = useState(false)
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const onSubmit = async (e) => {
+        e.preventDefault()
+        setForm((prev) => ({
+            ...prev,
+            // isLoading: true,
+        }));
+        await sendContactForm(form)
+    }
     return (
         <div className="w-full lg:w-1/2">
             <div>
                 <form
-                    onSubmit={(e) => e.preventDefault()}
+                    onSubmit={onSubmit}
                     className="max-w-xl m-4 p-6 sm:p-10 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left"
                 >
                     <p className="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">Contact Form</p>
+                    <div className="font-general-regular mb-4">
+                    <label
+                        className="block text-lg text-primary-dark dark:text-primary-light mb-1"
+                        htmlFor="name"
+                    >
+                        Full Name
+                    </label>
+                    <input
+                        className="w-full px-5 py-2 border border-gray-300 dark:border-primary-dark border-opacity-50 text-primary-dark dark:text-secondary-light bg-ternary-light dark:bg-ternary-dark rounded-md shadow-sm text-md"
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        aria-label="Name"
+                        onChange={handleChange}
+                        required
+                    />
 
-                    <FormInput
-                        inputLabel="Full Name"
-                        labelFor="name"
-                        inputType="text"
-                        inputId="name"
-                        inputName="name"
-                        placeholderText="Your Name"
-                        ariaLabelName="Name"
+                    <label
+                        className="block text-lg text-primary-dark dark:text-primary-light mb-1 mt-6"
+                        htmlFor="email"
+                    >
+                        Email
+                    </label>
+                    <input
+                        className="w-full px-5 py-2 border border-gray-300 dark:border-primary-dark border-opacity-50 text-primary-dark dark:text-secondary-light bg-ternary-light dark:bg-ternary-dark rounded-md shadow-sm text-md"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your email"
+                        aria-label="Email"
+                        onChange={handleChange}
+                        required
                     />
-                    <FormInput
-                        inputLabel="Email"
-                        labelFor="email"
-                        inputType="email"
-                        inputId="email"
-                        inputName="email"
-                        placeholderText="Your email"
-                        ariaLabelName="Email"
-                    />
-                    <FormInput
-                        inputLabel="Subject"
-                        labelFor="subject"
-                        inputType="text"
-                        inputId="subject"
-                        inputName="subject"
-                        placeholderText="Subject"
-                        ariaLabelName="Subject"
+
+                    <label
+                        className="block text-lg text-primary-dark dark:text-primary-light mb-1 mt-6"
+                        htmlFor="subject"
+                    >
+                        Subject
+                    </label>
+                    <input
+                        className="w-full px-5 py-2 border border-gray-300 dark:border-primary-dark border-opacity-50 text-primary-dark dark:text-secondary-light bg-ternary-light dark:bg-ternary-dark rounded-md shadow-sm text-md"
+                        type="subject"
+                        id="subject"
+                        name="subject"
+                        placeholder="Your subject"
+                        aria-label="Subject"
+                        onChange={handleChange}
+                        required
                     />
 
                     <div className="mt-6">
@@ -53,7 +103,10 @@ const ContactForm = () => {
                             cols="14"
                             rows="6"
                             aria-label="Message"
+                            onChange={handleChange}
                         ></textarea>
+                    </div>
+
                     </div>
 
                     <div className="mt-6">

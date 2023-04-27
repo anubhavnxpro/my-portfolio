@@ -1,6 +1,7 @@
 import React from 'react'
 import SkillsItem from './SkillsItem'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const AboutMeSkills = () => {
     return (
@@ -16,32 +17,32 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='C++'
-                    icon={<img src='/images/skills/c++logo.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/c++logo.png' />}
                 />
 
                 <SkillsItem
                     skills='JAVA'
-                    icon={<img src='/images/skills/java.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/java.png' />}
                 />
 
                 <SkillsItem
                     skills='Python'
-                    icon={<img src='/images/skills/python.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/python.png' />}
                 />
 
                 <SkillsItem
                     skills='PHP'
-                    icon={<img src='/images/skills/php.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/php.png' />}
                 />
 
                 <SkillsItem
                     skills='TypeScript'
-                    icon={<img src='/images/skills/typescript.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/typescript.png' />}
                 />
 
                 <SkillsItem
                     skills='Javascript (ES6+)'
-                    icon={<img src='/images/skills/javascript.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/javascript.png' />}
                 />
             </div>
 
@@ -52,27 +53,27 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='Node.js'
-                    icon={<img src='/images/skills/nodejs.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/nodejs.png' />}
                 />
 
                 <SkillsItem
                     skills='Next.js'
-                    icon={<img src='/images/skills/reactjs.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/reactjs.png' />}
                 />
 
                 <SkillsItem
                     skills='React.js'
-                    icon={<img src='/images/skills/reactjs.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/reactjs.png' />}
                 />
 
                 <SkillsItem
                     skills='Angular.js'
-                    icon={<img src='/images/skills/angular.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/angular.png' />}
                 />
 
                 <SkillsItem
                     skills='FireBase'
-                    icon={<img src='/images/skills/firebase.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/firebase.png' />}
                 />
             </div>
 
@@ -83,12 +84,12 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='MongoDB'
-                    icon={<img src='/images/skills/mongodb.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/mongodb.png' />}
                 />
 
                 <SkillsItem
                     skills='My SQL'
-                    icon={<img src='/images/skills/mysql.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/mysql.png' />}
                 />
             </div>
 
@@ -100,22 +101,22 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='CSS'
-                    icon={<img src='/images/skills/css.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/css.png' />}
                 />
 
                 <SkillsItem
                     skills='GIT'
-                    icon={<img src='/images/skills/git.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/git.png' />}
                 />
 
                 <SkillsItem
                     skills='HTML'
-                    icon={<img src='/images/skills/html.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/html.png' />}
                 />
 
                 <SkillsItem
                     skills='Github'
-                    icon={<img src='/images/skills/github.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/github.png' />}
                 />
             </div>
 
@@ -126,12 +127,12 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='Algorithms'
-                    icon={<img src='/images/skills/algo.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/algo.png' />}
                 />
 
                 <SkillsItem
                     skills='Data Structures'
-                    icon={<img src='/images/skills/datastructure.png' />}
+                    icon={<Image width={25} height={25} src='/images/skills/datastructure.png' />}
                 />
             </div>
         </div>

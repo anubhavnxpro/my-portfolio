@@ -187,7 +187,7 @@ const AppHeader = () => {
 				{showModal ? (
 					<HireMeModal
 						onClose={showHireMeModal}
-						onRequest={showHireMeModal}
+						setShowModal={setShowModal}
 					/>
 				) : null}
 				{showModal ? showHireMeModal : null}

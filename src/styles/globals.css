@@ -261,9 +261,50 @@ a {
   transition: 0.3s;
 }
 .skills img {
-	height: 25px;
-	margin-left: 5px;
+  height: 25px;
+  margin-left: 5px;
 }
 .paddingBottom {
-	padding-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* button loader */
+
+
+.submit-btn {
+  font-family: 'Anek Malayalam', sans-serif;
+  background: #4F46E5;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  min-width: 200px;
+  min-height: 36px;
+  cursor: pointer;
+  outline: none;
+}
+
+.submit-btn:disabled {
+  background: #6763a8;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.spinner {
+  margin-left: 45%;
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../reusable/Button";
-import FormInput from "../reusable/FormInput";
 import { sendContactForm } from "@/lib/api";
+import { emailSuccess } from "../reusable/Toastify";
 
 const initState = {
     name: "",
@@ -12,7 +12,7 @@ const initState = {
 
 const ContactForm = () => {
     const [form, setForm] = useState(initState);
-    // const [isLoading, setIsLoading] = useState(false)
+    const [showLoader, setShowLoader] = useState(false)
 
     const handleChange = (e) => {
         setForm({
@@ -22,12 +22,30 @@ const ContactForm = () => {
     }
 
     const onSubmit = async (e) => {
+        setShowLoader(true)
         e.preventDefault()
+
         setForm((prev) => ({
             ...prev,
-            // isLoading: true,
         }));
-        await sendContactForm(form)
+        
+        const resp = await sendContactForm(form)
+        
+        if(resp) {
+            if(resp.status === 400) {
+                incompleteDetails("Fill all the details")
+            }
+            else if(resp.status === 200) {
+                setTimeout(() => {
+                    emailSuccess();
+                    setShowModal(false)
+                }, 1000);
+            }
+            else {
+                badRequest(resp.statusText);
+            }
+            setShowLoader(false);
+        }
     }
     return (
         <div className="w-full lg:w-1/2">
@@ -110,13 +128,15 @@ const ContactForm = () => {
                     </div>
 
                     <div className="mt-6">
-                        <span className="font-general-medium  px-7 py-4 text-white text-center font-medium tracking-wider bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 rounded-lg mt-6 duration-500">
+                        {/* <span className="font-general-medium  px-7 py-4 text-white text-center font-medium tracking-wider bg-indigo-500 hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 rounded-lg mt-6 duration-500"> */}
                             <Button
                                 title="Send Message"
+                                loading={showLoader}
+                                disabled={showLoader}
                                 type="submit"
                                 aria-label="Send Message"
                             />
-                        </span>
+                        {/* </span> */}
                     </div>
                 </form>
             </div>

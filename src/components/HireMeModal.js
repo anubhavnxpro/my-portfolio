@@ -1,15 +1,64 @@
 import Button from './reusable/Button'
 import { motion } from 'framer-motion'
+import { useState } from 'react';
 import { FiX } from 'react-icons/fi'
+import { badRequest, emailSuccess, incompleteDetails } from './reusable/Toastify';
+import { sendProjectDetails } from '@/lib/api';
 
 const selectOptions = [
+    'Select Project Type',
     'Web Application',
     'Mobile Application',
     'UI/UX Design',
     'Branding',
 ];
 
-const HireMeModal = ({ onClose, onRequest }) => {
+const initState = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+}
+
+const HireMeModal = ({ onClose, setShowModal }) => {
+    const [form, setForm] = useState(initState);
+    const [showLoader, setShowLoader] = useState(false);
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const onSubmit = async (e) => {
+        setShowLoader(true);
+        e.preventDefault();
+
+        setForm((prev) => ({
+            ...prev,
+        }));
+
+        const resp = await sendProjectDetails(form);
+        // console.log(resp);
+        // return false;
+        if(resp) {
+            if(resp.status === 400) {
+                incompleteDetails("Fill all the details")
+            }
+            else if(resp.status === 200) {
+                setTimeout(() => {
+                    emailSuccess();
+                    setShowModal(false)
+                }, 1000);
+            }
+            else {
+                badRequest(resp.statusText);
+            }
+            setShowLoader(false);
+        }
+        
+    }
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -37,9 +86,7 @@ const HireMeModal = ({ onClose, onRequest }) => {
                         </div>
                         <div className="modal-body p-5 w-full h-full">
                             <form
-                                onSubmit={(e) => {
-                                    e.preventDefault();
-                                }}
+                                onSubmit={onSubmit}
                                 className="max-w-xl m-4 text-left"
                             >
                                 <div className="">
@@ -49,8 +96,9 @@ const HireMeModal = ({ onClose, onRequest }) => {
                                         name="name"
                                         type="text"
                                         required
-                                        placeholder="Name"
+                                        placeholder="Project Name"
                                         aria-label="Name"
+                                        onChange={handleChange}
                                     />
                                 </div>
                                 <div className="mt-6">
@@ -62,6 +110,7 @@ const HireMeModal = ({ onClose, onRequest }) => {
                                         required
                                         placeholder="Email"
                                         aria-label="Email"
+                                        onChange={handleChange}
                                     />
                                 </div>
                                 <div className="mt-6">
@@ -72,8 +121,12 @@ const HireMeModal = ({ onClose, onRequest }) => {
                                         type="text"
                                         required
                                         aria-label="Project Category"
+                                        onChange={handleChange}
                                     >
                                         {selectOptions.map((option) => (
+                                            option === 'Select Project Type' ?
+                                            <option selected disabled>{option}</option>
+                                            :
                                             <option
                                                 className="text-normal sm:text-md"
                                                 key={option}
@@ -89,38 +142,25 @@ const HireMeModal = ({ onClose, onRequest }) => {
                                         className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
                                         id="message"
                                         name="message"
+                                        required
                                         cols="14"
                                         rows="6"
                                         aria-label="Details"
                                         placeholder="Project description"
+                                        onChange={handleChange}
                                     ></textarea>
                                 </div>
 
                                 <div className="mt-6 pb-4 sm:pb-1">
-                                    <span
-                                        onClick={onRequest}
+                                    <Button
+                                        title="Send Request"
+                                        loading={showLoader}
+                                        disabled={showLoader}
                                         type="submit"
-                                        className="px-4 sm:px-6 py-2 sm:py-2.5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
-                                        aria-label="Submit Request"
-                                    >
-                                        <Button title="Send Request" />
-                                    </span>
+                                        aria-label="Send Message"
+                                    />
                                 </div>
                             </form>
-                        </div>
-                        <div className="modal-footer mt-2 sm:mt-0 py-5 px-8 border0-t text-right">
-                            <span
-                                onClick={onClose}
-                                type="button"
-                                className="px-4
-									sm:px-6
-									py-2 bg-gray-600 text-primary-light hover:bg-ternary-dark dark:bg-gray-200 dark:text-secondary-dark dark:hover:bg-primary-light
-									rounded-md
-									focus:ring-1 focus:ring-indigo-900 duration-500"
-                                aria-label="Close Modal"
-                            >
-                                <Button title="Close" />
-                            </span>
                         </div>
                     </div>
                 </div>

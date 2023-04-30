@@ -17,32 +17,32 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='C++'
-                    icon={<Image width={25} height={25} src='/images/skills/c++logo.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/c++logo.png' />}
                 />
 
                 <SkillsItem
                     skills='JAVA'
-                    icon={<Image width={25} height={25} src='/images/skills/java.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/java.png' />}
                 />
 
                 <SkillsItem
                     skills='Python'
-                    icon={<Image width={25} height={25} src='/images/skills/python.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/python.png' />}
                 />
 
                 <SkillsItem
                     skills='PHP'
-                    icon={<Image width={25} height={25} src='/images/skills/php.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/php.png' />}
                 />
 
                 <SkillsItem
                     skills='TypeScript'
-                    icon={<Image width={25} height={25} src='/images/skills/typescript.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/typescript.png' />}
                 />
 
                 <SkillsItem
                     skills='Javascript (ES6+)'
-                    icon={<Image width={25} height={25} src='/images/skills/javascript.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/javascript.png' />}
                 />
             </div>
 
@@ -53,27 +53,27 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='Node.js'
-                    icon={<Image width={25} height={25} src='/images/skills/nodejs.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/nodejs.png' />}
                 />
 
                 <SkillsItem
                     skills='Next.js'
-                    icon={<Image width={25} height={25} src='/images/skills/reactjs.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/reactjs.png' />}
                 />
 
                 <SkillsItem
                     skills='React.js'
-                    icon={<Image width={25} height={25} src='/images/skills/reactjs.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/reactjs.png' />}
                 />
 
                 <SkillsItem
                     skills='Angular.js'
-                    icon={<Image width={25} height={25} src='/images/skills/angular.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/angular.png' />}
                 />
 
                 <SkillsItem
                     skills='FireBase'
-                    icon={<Image width={25} height={25} src='/images/skills/firebase.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/firebase.png' />}
                 />
             </div>
 
@@ -84,12 +84,12 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='MongoDB'
-                    icon={<Image width={25} height={25} src='/images/skills/mongodb.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/mongodb.png' />}
                 />
 
                 <SkillsItem
                     skills='My SQL'
-                    icon={<Image width={25} height={25} src='/images/skills/mysql.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/mysql.png' />}
                 />
             </div>
 
@@ -101,22 +101,22 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='CSS'
-                    icon={<Image width={25} height={25} src='/images/skills/css.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/css.png' />}
                 />
 
                 <SkillsItem
                     skills='GIT'
-                    icon={<Image width={25} height={25} src='/images/skills/git.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/git.png' />}
                 />
 
                 <SkillsItem
                     skills='HTML'
-                    icon={<Image width={25} height={25} src='/images/skills/html.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/html.png' />}
                 />
 
                 <SkillsItem
                     skills='Github'
-                    icon={<Image width={25} height={25} src='/images/skills/github.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/github.png' />}
                 />
             </div>
 
@@ -127,12 +127,12 @@ const AboutMeSkills = () => {
             <div className="font-general-medium container mx-auto block sm:flex items-center paddingBottom">
                 <SkillsItem
                     skills='Algorithms'
-                    icon={<Image width={25} height={25} src='/images/skills/algo.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/algo.png' />}
                 />
 
                 <SkillsItem
                     skills='Data Structures'
-                    icon={<Image width={25} height={25} src='/images/skills/datastructure.png' />}
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/datastructure.png' />}
                 />
             </div>
         </div>

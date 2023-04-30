@@ -293,6 +293,8 @@ a {
 }
 
 .spinner {
+  width: 13px !important;
+  height: 14px !important;
   margin-left: 45%;
   animation-name: spin;
   animation-duration: 500ms;

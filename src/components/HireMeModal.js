@@ -125,7 +125,7 @@ const HireMeModal = ({ onClose, setShowModal }) => {
                                     >
                                         {selectOptions.map((option) => (
                                             option === 'Select Project Type' ?
-                                            <option selected disabled>{option}</option>
+                                            <option key={option} selected disabled>{option}</option>
                                             :
                                             <option
                                                 className="text-normal sm:text-md"

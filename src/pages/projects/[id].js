@@ -4,7 +4,7 @@ import Image from "next/image"
 import { FiClock, FiTag } from "react-icons/fi"
 
 const ProjectSingle = (props) => {
-    console.log(props);
+    // console.log(props);
     return (
         <div className="container mx-auto">
             <PagesMetaHead title={props.title} />

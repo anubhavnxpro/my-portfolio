@@ -100,15 +100,7 @@ const HireMeModal = ({ onClose, onRequest }) => {
                                     <span
                                         onClick={onRequest}
                                         type="submit"
-                                        className="px-4
-											sm:px-6
-											py-2
-											sm:py-2.5
-											text-white
-											bg-indigo-500
-											hover:bg-indigo-600
-											rounded-md
-											focus:ring-1 focus:ring-indigo-900 duration-500"
+                                        className="px-4 sm:px-6 py-2 sm:py-2.5 text-white bg-indigo-500 hover:bg-indigo-600 rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
                                         aria-label="Submit Request"
                                     >
                                         <Button title="Send Request" />

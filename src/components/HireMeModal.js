@@ -23,12 +23,18 @@ const initState = {
 const HireMeModal = ({ onClose, setShowModal }) => {
     const [form, setForm] = useState(initState);
     const [showLoader, setShowLoader] = useState(false);
+    const formRef = useRef(null);
+
 
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handleFormReset = () => {
+        formRef.current.reset()
     }
 
     const onSubmit = async (e) => {
@@ -50,6 +56,13 @@ const HireMeModal = ({ onClose, setShowModal }) => {
                 setTimeout(() => {
                     emailSuccess();
                     setShowModal(false)
+                    setForm({
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: '',
+                    })
+                    handleFormReset();
                 }, 1000);
             }
             else {
@@ -86,6 +99,7 @@ const HireMeModal = ({ onClose, setShowModal }) => {
                         </div>
                         <div className="modal-body p-5 w-full h-full">
                             <form
+                                ref={formRef}
                                 onSubmit={onSubmit}
                                 className="max-w-xl m-4 text-left"
                             >

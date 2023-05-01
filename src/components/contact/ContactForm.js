@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "../reusable/Button";
 import { sendContactForm } from "@/lib/api";
 import { emailSuccess } from "../reusable/Toastify";
@@ -13,12 +13,17 @@ const initState = {
 const ContactForm = () => {
     const [form, setForm] = useState(initState);
     const [showLoader, setShowLoader] = useState(false)
+    const formRef = useRef(null);
 
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handleFormReset = () => {
+        formRef.current.reset()
     }
 
     const onSubmit = async (e) => {
@@ -38,7 +43,13 @@ const ContactForm = () => {
             else if(resp.status === 200) {
                 setTimeout(() => {
                     emailSuccess();
-                    setShowModal(false)
+                    setForm({
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: '',
+                    })
+                    handleFormReset();
                 }, 1000);
             }
             else {
@@ -51,8 +62,10 @@ const ContactForm = () => {
         <div className="w-full lg:w-1/2">
             <div>
                 <form
+                    ref={formRef}
                     onSubmit={onSubmit}
                     className="max-w-xl m-4 p-6 sm:p-10 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left"
+                    autoComplete="off"
                 >
                     <p className="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">Contact Form</p>
                     <div className="font-general-regular mb-4">
@@ -70,6 +83,7 @@ const ContactForm = () => {
                         placeholder="Your Name"
                         aria-label="Name"
                         onChange={handleChange}
+                        autoComplete="off"
                         required
                     />
 
@@ -87,6 +101,7 @@ const ContactForm = () => {
                         placeholder="Your email"
                         aria-label="Email"
                         onChange={handleChange}
+                        autoComplete="off"
                         required
                     />
 
@@ -104,6 +119,7 @@ const ContactForm = () => {
                         placeholder="Your subject"
                         aria-label="Subject"
                         onChange={handleChange}
+                        autoComplete="off"
                         required
                     />
 

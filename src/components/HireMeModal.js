@@ -1,6 +1,6 @@
 import Button from './reusable/Button'
 import { motion } from 'framer-motion'
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FiX } from 'react-icons/fi'
 import { badRequest, emailSuccess, incompleteDetails } from './reusable/Toastify';
 import { sendProjectDetails } from '@/lib/api';

@@ -134,6 +134,11 @@ const AboutMeSkills = () => {
                     skills='Data Structures'
                     icon={<Image alt='logo' width={25} height={25} src='/images/skills/datastructure.png' />}
                 />
+
+                <SkillsItem
+                    skills='AI / ML'
+                    icon={<Image alt='logo' width={25} height={25} src='/images/skills/ml.png' />}
+                />
             </div>
         </div>
     )
